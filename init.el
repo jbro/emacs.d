@@ -28,6 +28,16 @@
   (load-theme 'gruvbox t)
 )
 
+;; Evil mode
+(use-package evil
+  :ensure t
+  :defer .1 ;; don't block emacs when starting, load evil immediately after startup
+  :custom
+  (evil-search-module 'evil-search)
+  :config
+  (evil-mode t)
+)
+
 ;; Show trailing whitespaces on lines
 (use-package whitespace
   :custom
