@@ -96,6 +96,42 @@
   (setq langtool-default-language languagetool)
   (message "aspell: %s\nLanguageTool: %s" flyspell languagetool))
 
+;; Show dashboard on startup
+(use-package dashboard
+  :ensure t
+  :custom
+  (initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+  :config
+  (dashboard-setup-startup-hook))
+
+;; Show a popup of what we can do next
+(use-package which-key
+  :ensure t
+  :custom
+  (which-key-idle-delay 0)
+  :config
+  (which-key-enable-god-mode-support)
+  (which-key-mode t))
+
+;; Reindent while changing
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'aggressive-indent-mode))
+
+;;
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
+
+;; Show git state in margin
+(use-package diff-hl
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'diff-hl-margin-mode)
+  (add-hook 'prog-mode-hook 'diff-hl-mode))
+
 ;; TODO
 ;; folding (evilmode?)
 ;; mail
