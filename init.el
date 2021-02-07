@@ -14,7 +14,7 @@
 (package-initialize)
 (require 'package)
 (add-to-list 'package-archives
-    '("melpa" . "https://melpa.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/") t)
 
 ;; Install use-package automatically
 (unless (package-installed-p 'use-package)
@@ -25,8 +25,7 @@
 (use-package gruvbox-theme
   :ensure t
   :config
-  (load-theme 'gruvbox t)
-)
+  (load-theme 'gruvbox t))
 
 ;; Evil mode
 (use-package evil
@@ -35,8 +34,7 @@
   :custom
   (evil-search-module 'evil-search)
   :config
-  (evil-mode t)
-)
+  (evil-mode t))
 
 ;; Show trailing whitespaces on lines
 (use-package whitespace
@@ -63,7 +61,7 @@
   :custom
   (langtool-language-tool-jar "~/local/languagetool/LanguageTool-5.2/languagetool-commandline.jar")
   (langtool-http-server-host "localhost"
-   langtool-http-server-port 8082)
+			     langtool-http-server-port 8082)
   (langtool-default-language "en-GB"))
 
 ;; Spell checking
