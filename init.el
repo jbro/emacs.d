@@ -134,7 +134,7 @@
   (which-key-enable-god-mode-support)
   (which-key-mode t))
 
-;; Reindent while changing
+;; Re-indent while changing
 (use-package aggressive-indent
   :ensure t
   :config
@@ -153,9 +153,13 @@
   (add-hook 'prog-mode-hook 'diff-hl-margin-mode)
   (add-hook 'prog-mode-hook 'diff-hl-mode))
 
-;; TODO
-;; folding (evilmode?)
-;; mail
-;; org work flows
-;; ical export of agendas?
-;; html export of agendas
+;; Lisp REPL
+(use-package sly
+  :ensure t)
+
+;; Pretty modeline
+(use-package telephone-line
+  :ensure t
+  :init
+  (telephone-line-mode 1))
+
