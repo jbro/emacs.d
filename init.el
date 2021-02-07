@@ -40,8 +40,37 @@
   :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :custom
   (evil-search-module 'evil-search)
+  (evil-want-keybinding nil)
   :config
   (evil-mode t))
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+;; User \ as "emacs leader key"
+(use-package god-mode
+  :ensure t)
+(use-package evil-god-state
+  :ensure t
+  :after evil
+  :after god-mode
+  :config
+  (evil-define-key 'normal global-map "\\" 'evil-execute-in-god-state)
+  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
+
+;; vim style folding
+(use-package vimish-fold
+  :ensure t
+  :init
+  (vimish-fold-global-mode 1))
+(use-package evil-vimish-fold
+  :ensure t
+  :after evil
+  :config
+  (add-hook 'prog-mode-hook 'evil-vimish-fold-mode)
+  (add-hook 'text-mode-hook 'evil-vimish-fold-mode))
 
 ;; Show trailing whitespaces on lines
 (use-package whitespace
@@ -52,19 +81,9 @@
   (set-face-attribute 'whitespace-trailing nil
 		      :background (face-background 'default)
 		      :weight 'bold)
-  :init
-  (global-whitespace-mode 't))
-
-;;
-(use-package god-mode
-  :ensure t)
-(use-package evil-god-state
-  :ensure t
   :config
-  (evil-define-key 'normal global-map "\\" 'evil-execute-in-god-state)
-  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
-
-
+  (add-hook 'prog-mode-hook 'whitespace-mode)
+  (add-hook 'text-mode-hook 'whitespace-mode))
 
 ;; Grammar checker
 (use-package langtool
