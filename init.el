@@ -101,8 +101,8 @@
   (ispell-dictionary "british")
   (ispell-list-command "--list")
   :config
-  (add-hook 'org-mode-hook 'flyspell-mode)
-  (add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode))
+  (add-hook 'prog-mode-hook 'flyspell-mode)
+  (add-hook 'text-mode-hook 'flyspell-prog-mode))
 
 ;; Change language both for flyspell and LanguageTool
 (defun spell-set-language (flyspell languagetool)
@@ -144,7 +144,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :config
-  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;; Show git state in margin
 (use-package diff-hl
