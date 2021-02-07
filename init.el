@@ -10,6 +10,13 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
 
+;;
+(show-paren-mode 't)
+
+;;
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+
 ;; MELPA repo
 (package-initialize)
 (require 'package)
@@ -57,12 +64,7 @@
   (evil-define-key 'normal global-map "\\" 'evil-execute-in-god-state)
   (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
 
-;;
-(show-paren-mode 't)
 
-;;
-(global-display-line-numbers-mode)
-(setq display-line-numbers-type 'relative)
 
 ;; Grammar checker
 (use-package langtool
