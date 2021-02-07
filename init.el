@@ -49,6 +49,15 @@
   (global-whitespace-mode 't))
 
 ;;
+(use-package god-mode
+  :ensure t)
+(use-package evil-god-state
+  :ensure t
+  :config
+  (evil-define-key 'normal global-map "\\" 'evil-execute-in-god-state)
+  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
+
+;;
 (show-paren-mode 't)
 
 ;;
