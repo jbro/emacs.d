@@ -55,7 +55,7 @@
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
-;; Gramma checker
+;; Grammar checker
 (use-package langtool
   :ensure t
   :custom
